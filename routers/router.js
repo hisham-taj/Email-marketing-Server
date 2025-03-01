@@ -1,15 +1,14 @@
 const express = require('express');
 const router = express.Router();
-const controller = require('../controllers/controller')
-
-
-router
-    .post('/leads',controller.postLeads)
-    .post('/templates',controller.postMailTemplate)
-
+const controller = require('../controllers/controller');
 
 router
-    .get('/leads',controller.getLeads)
-    .get('/templates',controller.getMailTemplate)
+    .post('/leads', controller.postLeads)
+    .post('/templates', controller.postMailTemplate)
+    .post('/sendEmail', controller.sendEmail);  
 
-    module.exports = router;
+router
+    .get('/leads', controller.getLeads)
+    .get('/templates', controller.getMailTemplate);
+
+module.exports = router;
